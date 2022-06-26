@@ -1,4 +1,4 @@
-# LilNasXium
+# lilnas
 
 A Lil' Network-Assisted Storage (NAS) solution for people unwiling to invest in
 Google Photos (or don't want to worry about image quality losses). The hardware
@@ -8,9 +8,7 @@ internet and a storage device you can connect to it with.
 <font style="color: #ff9999;"> note: To support systems with limited network control, we also aim to support a
 UDP Hole-Punching protocol in the future to avoid requiring port-forwarding. </font>
 
-Much love to our icon, Lil Nas X.
-
-Head over to the (wiki)[https://github.com/ArvinSKushwaha/LilNasXium/wiki] for more information!
+<!-- Head over to the [wiki](https://github.com/ArvinSKushwaha/lilnas/wiki) for more information! -->
 
 ## Project Plan
 
@@ -38,4 +36,4 @@ Head over to the (wiki)[https://github.com/ArvinSKushwaha/LilNasXium/wiki] for m
 Contributions from our lovely developer community are always welcome! (Here) is
 a guide to how you can help out with our development process. If you have any
 questions about contributing, an FAQ will be provided in the
-[wiki](https://github.com/ArvinSKushwaha/LilNasXium).
+[wiki](https://github.com/ArvinSKushwaha/lilnas).
