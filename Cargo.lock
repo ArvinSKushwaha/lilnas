@@ -365,6 +365,10 @@ name = "lilnas"
 version = "0.1.0"
 
 [[package]]
+name = "lilnas_server"
+version = "0.1.0"
+
+[[package]]
 name = "lilnas_server_ui"
 version = "0.1.0"
 dependencies = [

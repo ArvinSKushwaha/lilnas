@@ -5,10 +5,19 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[[bin]]
+name = "lilnas_server_ui"
+path = "./lilnas_server_ui/src/main.rs"
+
+[[bin]]
+name = "lilnas_server"
+path = "./lilnas_server/rust/src/main.rs"
+
 [dependencies]
 
 
 [workspace]
 members = [
     "lilnas_server_ui",
+    "lilnas_server",
 ]
