@@ -10,17 +10,19 @@ use std::{
 use args::Action;
 use clap::Parser;
 use color_eyre::Result;
-use config::{LoginInfo, load_config_path, load_application_data, save_application_data};
+use config::{load_application_data, load_config_path, save_application_data, LoginInfo};
 use once_cell::sync::OnceCell;
 use owo_colors::OwoColorize;
 use parking_lot::RwLock;
 
-use crate::{args::App, config::{ServerConfiguration, initialization_status}};
+use crate::{
+    args::App,
+    config::{initialization_status, ServerConfiguration},
+};
 
 mod args;
-mod macros;
 mod config;
-
+mod macros;
 
 pub(crate) static SERVER_CONFIG: OnceCell<RwLock<ServerConfiguration>> = OnceCell::new();
 
@@ -28,7 +30,6 @@ const SALT: [u8; 16] = [
     0x3b, 0x62, 0x16, 0x1d, 0xfe, 0xb5, 0xab, 0x0e, 0x04, 0x5e, 0x01, 0x96, 0xaf, 0x49, 0x6b, 0x7a,
 ];
 const COST: u32 = 12;
-
 
 fn setup_application() -> Result<()> {
     log::trace!("Setting Up Application...");
@@ -58,8 +59,7 @@ fn setup_application() -> Result<()> {
                 _ => {}
             }
 
-            let info =
-                query_login_info(std::io::stdin().lock(), std::io::stdout())?;
+            let info = query_login_info(std::io::stdin().lock(), std::io::stdout())?;
             if !lock.get_logins_mut().insert(info) {
                 log::error!("Cannot add duplicate login. Try adding a different login.");
             } else {
@@ -88,7 +88,6 @@ fn setup_application() -> Result<()> {
     log::trace!("Releasing ServerConfiguration parameters from write lock");
     Ok(())
 }
-
 
 fn query_again(prompt: impl std::fmt::Display) -> Result<bool> {
     let mut data = String::new();
@@ -128,7 +127,6 @@ fn add_folder() -> Result<bool> {
     log::trace!("Releasing ServerConfiguration parameters from write lock");
     Ok(true)
 }
-
 
 fn query_folder_info(mut stdin: impl BufRead, mut stdout: impl Write) -> Result<PathBuf> {
     log::trace!("Querying Folder Info...");
@@ -227,7 +225,6 @@ fn query_login_info(mut stdin: impl BufRead, mut stdout: impl Write) -> Result<L
         ));
     }
 }
-
 
 fn main() -> Result<()> {
     simple_logger::SimpleLogger::new()

@@ -1,8 +1,13 @@
-use std::{collections::BTreeSet, path::{PathBuf, Path}, fs::{File, create_dir_all}, io::{Write, BufReader, Read}};
+use std::{
+    collections::BTreeSet,
+    fs::{create_dir_all, File},
+    io::{BufReader, Read, Write},
+    path::{Path, PathBuf},
+};
 
+use color_eyre::Result;
 use parking_lot::RwLock;
 use serde::{Deserialize, Serialize};
-use color_eyre::Result;
 
 use crate::SERVER_CONFIG;
 
@@ -16,7 +21,7 @@ impl LoginInfo {
     pub(crate) fn new(username: String, passwd_hash: &[u8]) -> Self {
         Self {
             user: username,
-            base64_passwd_hash: base64::encode(passwd_hash)
+            base64_passwd_hash: base64::encode(passwd_hash),
         }
     }
 }
@@ -106,7 +111,6 @@ pub(crate) fn load_config_path() -> Result<PathBuf> {
             Ok(path)
         })
 }
-
 
 pub(crate) fn load_application_data(path: &Path) -> Result<()> {
     let file = if path.is_file() {

@@ -2,7 +2,7 @@
 #[clap(author)]
 pub(crate) struct App {
     #[clap(subcommand)]
-    pub(crate) action: Action
+    pub(crate) action: Action,
 }
 
 #[derive(clap::Subcommand, Debug, PartialEq, Eq)]
